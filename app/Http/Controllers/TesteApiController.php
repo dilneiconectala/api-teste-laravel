@@ -8,6 +8,13 @@ use App\Models\TesteLogPhp;
 class TesteApiController extends Controller
 {
 
+    public function ping()
+    {
+        $data = [];
+        $data['result'] = 'pong';
+        return response($data, 200);
+    }
+
     public function getAll()
     {
         $data = Teste::get()->toJson(JSON_PRETTY_PRINT);
