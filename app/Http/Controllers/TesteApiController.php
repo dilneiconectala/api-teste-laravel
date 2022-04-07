@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Teste;
 use App\Models\TesteLogPhp;
+use Illuminate\Http\Request;
 
 class TesteApiController extends Controller
 {
@@ -19,6 +20,19 @@ class TesteApiController extends Controller
     {
         $data = Teste::get()->toJson(JSON_PRETTY_PRINT);
         return response($data, 200);
+    }
+
+    public function insert(Request $request)
+    {
+
+        $teste = Teste::create($request->all());
+
+        return response()->json([
+            'status' => true,
+            'message' => "Created successfully!",
+            'teste' => $teste
+        ], 201);
+
     }
 
     public function getAllSaving()

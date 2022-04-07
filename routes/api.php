@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('ping', [\App\Http\Controllers\TesteApiController::class, 'ping']);
 Route::get('teste', [\App\Http\Controllers\TesteApiController::class, 'getAll']);
+Route::post('teste', [\App\Http\Controllers\TesteApiController::class, 'insert']);
 Route::get('teste-saving', [\App\Http\Controllers\TesteApiController::class, 'getAllSaving']);
